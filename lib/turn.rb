@@ -51,7 +51,7 @@ class Turn
         player2
       end
     else
-      "No Winner" ####Look into this possibly
+      "No Winner"
     end
   end
 
@@ -98,7 +98,6 @@ class Turn
         spoils_of_war.clear
       end
     else
-      "No Winner"
     end
   end
 
@@ -123,8 +122,10 @@ class Turn
         else
            puts "Turn #{index}: WAR - #{winner_of_turn.name} won 6 cards"
         end
-        player1.deck.cards.shuffle!
-        player2.deck.cards.shuffle!
+        if index == 100000
+          player1.deck.cards.shuffle!
+          player2.deck.cards.shuffle!
+        end
         break if index == 1000000
       end
 
@@ -136,7 +137,7 @@ class Turn
         puts "---- DRAW ----"
       end
     else
-      puts "Fine, I guess you don't want to play the game"
+      puts "Fine, be lame"
     end
   end
 
