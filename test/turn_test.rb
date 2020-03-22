@@ -292,5 +292,4 @@ class TurnTest < Minitest::Test
     assert_equal [card7, card1, card2, card5, card3, card4, card6], player2.deck.cards
     assert_equal [], turn.spoils_of_war
   end
-
 end
