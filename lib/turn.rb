@@ -125,13 +125,15 @@ class Turn
         end
         player1.deck.cards.shuffle!
         player2.deck.cards.shuffle!
-        break if index == 100000000
+        break if index == 1000000
       end
 
       if player1.has_lost?
         puts "*~*~*~* Derek has won the game! *~*~*~*"
-      else
+      elsif player2.has_lost?
         puts "*~*~*~* Vivi has won the game! *~*~*~*"
+      else
+        puts "---- DRAW ----"
       end
     else
       puts "Fine, I guess you don't want to play the game"
