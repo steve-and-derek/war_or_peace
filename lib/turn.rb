@@ -140,5 +140,4 @@ class Turn
       puts "Fine, be lame"
     end
   end
-
 end
