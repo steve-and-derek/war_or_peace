@@ -55,3 +55,10 @@ card49 = Card.new(:spade, 'Jack', 11)
 card50 = Card.new(:spade, 'Queen', 12)
 card51 = Card.new(:spade, 'King', 13)
 card52 = Card.new(:spade, 'Ace', 14)
+deck1 = Deck.new([card32, card26, card13, card38, card20, card47, card51, card3, card1, card30, card4, card31, card6, card40, card14, card2, card11, card41, card34, card22, card49, card12, card36, card24, card37, card10])
+deck2 = Deck.new([card18, card45, card39, card35, card42, card33, card17, card8, card46, card15, card52, card27, card7, card50, card29, card21, card16, card19, card48, card43, card23, card44, card5, card28, card25, card9])
+player1 = Player.new("Vivi", deck1)
+player2 = Player.new("Derek", deck2)
+turn = Turn.new(player1, player2)
+
+turn.start
