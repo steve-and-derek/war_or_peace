@@ -100,4 +100,44 @@ class Turn
     else
     end
   end
+
+  def start
+    puts "Welcome to War! (or Peace) This game will be played with 52 cards."
+    puts "The players today are #{player1.name} and #{player2.name}."
+    puts "Type 'GO' to start the game!"
+    puts "-" * 66
+    index = 0
+    input = gets.upcase.chomp
+    if input == "GO"
+      until player1.has_lost? || player2.has_lost? do
+        if index == 0
+          player1.deck.cards.shuffle!
+          player2.deck.cards.shuffle!
+        end
+        turn_type = type
+        winner_of_turn = winner
+        pile_cards
+        award_spoils(winner_of_turn)
+        index += 1
+        if winner_of_turn == "No Winner"
+          puts "Turn #{index}: *Mutually assured destruction* 6 cards removed from play"
+        elsif turn_type == :basic
+          puts "Turn #{index}: #{winner_of_turn.name} won 2 cards"
+        else
+           puts "Turn #{index}: WAR - #{winner_of_turn.name} won 6 cards"
+        end
+        break if index == 1000000
+      end
+
+      if player1.has_lost?
+        puts "*~*~*~* Derek has won the game! *~*~*~*"
+      elsif player2.has_lost?
+        puts "*~*~*~* Vivi has won the game! *~*~*~*"
+      else
+        puts "---- DRAW ----"
+      end
+    else
+      puts "Fine, be lame"
+    end
+  end
 end
