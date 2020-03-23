@@ -62,4 +62,10 @@ player1 = Player.new("Vivi", deck1)
 player2 = Player.new("Derek", deck2)
 turn = Turn.new(player1, player2)
 
-turn.start
+ranks = (2..14).to_a
+suits = [:spade, :heart, :diamond, :club]
+values = 
+
+require "pry"; binding.pry
+
+# turn.start
