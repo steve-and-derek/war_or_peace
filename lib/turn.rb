@@ -106,7 +106,6 @@ class Turn
     puts "The players today are #{player1.name} and #{player2.name}."
     puts "Type 'GO' to start the game!"
     puts "-" * 66
-
     index = 0
     input = gets.upcase.chomp
     if input == "GO"
