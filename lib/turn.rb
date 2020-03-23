@@ -1,6 +1,6 @@
 class Turn
-  attr_reader :player1, :player2, :spoils_of_war
 
+  attr_reader :player1, :player2, :spoils_of_war
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
@@ -106,19 +106,23 @@ class Turn
     puts "The players today are #{player1.name} and #{player2.name}."
     puts "Type 'GO' to start the game!"
     puts "-" * 66
+
     index = 0
     input = gets.upcase.chomp
+
     if input == "GO"
       until player1.has_lost? || player2.has_lost? do
         if index == 0
           player1.deck.cards.shuffle!
           player2.deck.cards.shuffle!
         end
+
         turn_type = type
         winner_of_turn = winner
         pile_cards
         award_spoils(winner_of_turn)
         index += 1
+
         if winner_of_turn == "No Winner"
           puts "Turn #{index}: *Mutually assured destruction* 6 cards removed from play"
         elsif turn_type == :basic
@@ -126,6 +130,7 @@ class Turn
         else
            puts "Turn #{index}: WAR - #{winner_of_turn.name} won 6 cards"
         end
+
         break if index == 1000000
       end
 
